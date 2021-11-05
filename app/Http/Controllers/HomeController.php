@@ -16,4 +16,13 @@ class HomeController extends Controller
 
         return view('home', $data);
     }
+
+    public function show($id) {
+        
+        $chosenPackage = Package::findOrFail($id);
+
+        $dataPackage = ['chosenPackage' => $chosenPackage];
+
+        return view('home', $dataPackage);
+    }
 }
